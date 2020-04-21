@@ -8,7 +8,14 @@
     <title>Welcome to the Best Movie Review Website</title>
     {% endif %}
   </head>
-
-<h1>{{message}}</h1>
-
+<body>
+  <h1>{{message}}</h1>
+  <!--Popular movie section-->
+  <h3>Popular movies</h3>
+  <ul>
+    {%for popular_movie in popular%}
+    <li>{{popular_movie.title}}</li>
+    {%endfor%}
+  </ul>
+</body>
 </html>
