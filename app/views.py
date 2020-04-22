@@ -13,10 +13,12 @@ def index():
 
   #getting popular movie
   popular_movies = get_movies('popular')
-  print(popular_movies)
+  upcoming_movies = get_movies('upcoming')
+  now_showing_movie = get_movies('now_playing')
+
 
   title = 'Home - Welcome to the Best Movie Review Website online '
-  return render_template('index.html',message = message, title = title, popular = popular_movies)
+  return render_template('index.html',message = message, title = title, popular = popular_movies, upcoming = upcoming_movies, now_showing = now_showing_movie)
 
   
 
