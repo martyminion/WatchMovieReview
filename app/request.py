@@ -21,7 +21,7 @@ def process_results(movie_list):
   '''
   movie_results = []
   for movie_item in movie_list:
-    id = movie_item.get('')
+    id = movie_item.get('id')
     title = movie_item.get('original_title')
     overview = movie_item.get('overview')
     poster = movie_item.get('poster_path')
