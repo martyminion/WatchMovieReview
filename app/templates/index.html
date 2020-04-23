@@ -2,8 +2,8 @@
 {%import 'macros.html' as macro%}
 <!-- Styles Block -->
 {%block styles%}
-  {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 {% endblock %}
 
 <!--Content Block now using the base html-->
@@ -16,28 +16,38 @@
   </form>
 </div>
 <!--Popular movie section-->
-<h3>Popular movies</h3>
-<ul>
-  {{macro.displayMovieList(popular)}}
-</ul>
-<h3>Upcoming movies</h3>
-<ul>
+<div>
+  <h3>Popular movies</h3>
+  <br>
+  <ul>
+    {{macro.displayMovieList(popular)}}
+  </ul>
+</div>
+<hr>
+<div>
+  <h3>Upcoming movies</h3>
+  <br>
+  <ul>
 
-  {{macro.displayMovieList(upcoming)}}
-  
-</ul>
-<h3>Now Showing movies</h3>
-<ul>
-  {{macro.displayMovieList(now_showing)}}
-  
-</ul>
+    {{macro.displayMovieList(upcoming)}}
+
+  </ul>
+</div>
+<hr>
+<div>
+  <h3>Now Showing movies</h3>
+  <br>
+  <ul>
+    {{macro.displayMovieList(now_showing)}}
+  </ul>
+</div>
 {%endblock%}
 
 <!-- {%for upcoming_movie in upcoming%}
   <li>{{upcoming_movie.title}}</li>
   {%endfor%} -->
 
-  <!-- {%for now_showing_movie in now_showing%}
+<!-- {%for now_showing_movie in now_showing%}
   <li>{{now_showing_movie.title}}</li>
   {%endfor%} -->
 
