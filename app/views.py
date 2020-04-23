@@ -39,7 +39,7 @@ def movie(movie_id):
   movie = get_movie(movie_id)
   title = f"{movie.title}"
   reviews = Review.get_reviews(movie.id)
-  return render_template('movie.html',movie = movie, title = title )
+  return render_template('movie.html',movie = movie, title = title, reviews = reviews)
 
 @app.route('/search/<movie_name>')
 def search(movie_name):
@@ -50,7 +50,7 @@ def search(movie_name):
   movie_name_format = "+".join(movie_name_list)
   searched_movies = search_movie(movie_name_format)
   title = f'search results for {movie_name}'
-  return render_template('search.html',movies = searched_movies,title = title, reviews = reviews)
+  return render_template('search.html',movies = searched_movies,title = title)
 
 @app.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
 def new_review(id):
