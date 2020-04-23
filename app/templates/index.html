@@ -1,5 +1,33 @@
+{%extends 'base.html'%}
 {%import 'macros.html' as macro%}
-<!Doctype html>
+
+<!--Content Block now using the base html-->
+{%block content%}
+<!--Popular movie section-->
+<h3>Popular movies</h3>
+<ul>
+  <!-- {%for popular_movie in popular%}
+   <li>{{popular_movie.title}}</li>
+   {%endfor%} -->
+  {{macro.displayMovieList(popular)}}
+</ul>
+<h3>Upcoming movies</h3>
+<ul>
+  {%for upcoming_movie in upcoming%}
+  <li>{{upcoming_movie.title}}</li>
+  {%endfor%}
+</ul>
+<h3>Now Showing movies</h3>
+<ul>
+  {%for now_showing_movie in now_showing%}
+  <li>{{now_showing_movie.title}}</li>
+  {%endfor%}
+</ul>
+{%endblock%}
+
+
+<!--Content without the extension of the basehtml
+ <!Doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,12 +39,12 @@
   </head>
 <body>
   <h1>{{message}}</h1>
-  <!--Popular movie section-->
+  Popular movie section
   <h3>Popular movies</h3>
   <ul>
-    <!-- {%for popular_movie in popular%}
+     {%for popular_movie in popular%}
     <li>{{popular_movie.title}}</li>
-    {%endfor%} -->
+    {%endfor%} 
     {{macro.displayMovieList(popular)}}
   </ul>
   <h3>Upcoming movies</h3>
@@ -32,4 +60,4 @@
     {%endfor%}
   </ul>
 </body>
-</html>
+</html> -->
