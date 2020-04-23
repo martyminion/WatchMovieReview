@@ -8,6 +8,13 @@
 
 <!--Content Block now using the base html-->
 {%block content%}
+<div class="container">
+  <form>
+    <input type="text" name="movie_query" placeholder="Search for a movie" class="form-control">
+
+    <input type="submit" value="Submit" class="btn btn-default">
+  </form>
+</div>
 <!--Popular movie section-->
 <h3>Popular movies</h3>
 <ul>
@@ -15,18 +22,24 @@
 </ul>
 <h3>Upcoming movies</h3>
 <ul>
-  {%for upcoming_movie in upcoming%}
-  <li>{{upcoming_movie.title}}</li>
-  {%endfor%}
+
+  {{macro.displayMovieList(upcoming)}}
+  
 </ul>
 <h3>Now Showing movies</h3>
 <ul>
-  {%for now_showing_movie in now_showing%}
-  <li>{{now_showing_movie.title}}</li>
-  {%endfor%}
+  {{macro.displayMovieList(now_showing)}}
+  
 </ul>
 {%endblock%}
 
+<!-- {%for upcoming_movie in upcoming%}
+  <li>{{upcoming_movie.title}}</li>
+  {%endfor%} -->
+
+  <!-- {%for now_showing_movie in now_showing%}
+  <li>{{now_showing_movie.title}}</li>
+  {%endfor%} -->
 
 <!--Content without the extension of the basehtml
  <!Doctype html>
