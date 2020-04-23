@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_movies
+from .request import get_movies,get_movie
 
 #views
 
@@ -27,5 +27,6 @@ def movie(movie_id):
   '''
   view movie page function that returns the movie details page and its data
   '''
-  movie_title = f"The movie {movie_id}"
-  return render_template('movie.html',id = movie_id, title = movie_title )
+  movie = get_movie(id)
+  title = f"{movie.title}"
+  return render_template('movie.html',movie = movie, title = title )
