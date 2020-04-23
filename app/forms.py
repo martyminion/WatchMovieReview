@@ -5,5 +5,5 @@ from wtforms.validators import Required
 class ReviewForm(FlaskForm):
 
   title = StringField('Review title',validators=[Required()])
-  review = TextAreaField('Moview Review',validators=[Required()])
+  review = TextAreaField('Movie Review',validators=[Required()])
   submit = SubmitField('Submit')
