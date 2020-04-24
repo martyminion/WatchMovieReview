@@ -1,12 +1,12 @@
 from app import create_app
-from flask_script import Manager,Server
+from flask_script import Manager,Server,Shell
 
 #Create app instance
 app = create_app('development')
 
 manager = Manager(app)
 
-#create the coomand that will launch the app server
+#create the comand that will launch the app server
 
 manager.add_command('server',Server)
 
