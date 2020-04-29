@@ -1,3 +1,5 @@
+from . import db
+
 class Movie:
   '''
   Defines the Movie object
@@ -37,4 +39,26 @@ class Review:
         response.append(review)
 
     return response
- 
+
+class User(db.Model):
+  __tablename__ = 'users'
+  id = db.Column(db.Integer, primary_key = True)
+  username = db.Column(db.String(255))
+  role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+  #not key, helps in debuging
+  def __repr__(self):
+    return f'User {self.username}'
+
+class Role(db.Model):
+  __tablename__ = 'roles'
+
+  id = db.Column(db.Integer,primary_key = True)
+  name = db.Column(db.String(255))
+  # db.relationship creates a virtual column that will connect with the foreign key
+  # takes in 3 parameters, User is the class we are referencing to, backref allows us access to our User class and to get the role is user.role
+  # lazy option means, data is loaded on access and filtered before returning
+  users = db.relationship('User',backref = 'role', lazy = "dynamic")
+
+  #not key, helps in debuging
+  def __repr__(self):
+    return f'User {self.name}'
