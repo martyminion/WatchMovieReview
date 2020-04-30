@@ -6,7 +6,7 @@ class Config:
   
   MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
   SECRET_KEY = os.environ.get('SECRET_KEY')
-  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://martin:kimani@localhost/watchlist'
+  
   UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
   #email configurations
@@ -24,11 +24,15 @@ class ProdConfig(Config):
   pass
 
 class DevConfig(Config):
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://martin:kimani@localhost/watchlist'
   DEBUG = True
+class TestConfig(Config):
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://martin:kimani@localhost/watchlist_test'
 
 config_options = {
   'development':DevConfig,
-  'production' :ProdConfig
+  'production' :ProdConfig,
+  'test':TestConfig
 }
 
 
