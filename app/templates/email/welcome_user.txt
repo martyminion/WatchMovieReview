@@ -1,0 +1,10 @@
+Hello {{user.username}}
+
+Welcome to Watchlist
+
+Your one stop location for all things Movie..
+We have just received your aplication and we would like to welcome you to the family. Take your time and enjoy the reviews and make
+some of your own..
+
+regards
+Watchlist Team
