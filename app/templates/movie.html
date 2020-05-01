@@ -1,39 +1,39 @@
 {%extends 'base.html'%}
 {%import 'macros.html' as macro%}
 {%block styles%}
-  {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/movie.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/movie.css')}}">
 {% endblock %}
 
 <!--Content Block-->
 {%block content%}
 <div class="container">
-
+  <!-- style="background:url({{movie.poster}}) no-repeat center center" -->
   <!-- Poster Background -->
   <div class="row">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background:url({{movie.poster}}) no-repeat center center">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath">
+      <img src="{{movie.poster}}" alt="{{movie.title}}">
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
       <h3>{{movie.title}}</h3>
       <p class="overview">{{movie.overview}}</p>
       <p class="ratings"><b>{{movie.vote_average}}</b> - <i>{{movie.vote_count}} votes</i></p>
       <a class='ratings' href="/movie/review/new/{{movie.id}}">Write a review</a>
-    </div>
-    <div class="row">
-      <h1>Reviews</h1>
+
+
+      <h3>Reviews</h3>
       <hr>
-  
       {%if reviews%}
-        {{macro.displayReviews(reviews)}}
+      {{macro.displayReviews(reviews)}}
       {%else%}
-        <h3 class="text-center">This movie has no reviews</h3>
-  
-        <a class='btn btn-success btn-lg text-center' href="/movie/review/new/{{movie.id}}">Write a new review</a>
+      <h3 class="text-center">This movie has no reviews</h3>
+      <a class='btn btn-success text-center' href="/movie/review/new/{{movie.id}}">Write a new review</a>
       {%endif%}
     </div>
-    <!-- url({{movie.poster}}) no-repeat center center -->
   </div>
- 
+  <!-- url({{movie.poster}}) no-repeat center center -->
+</div>
+
 
 </div>
 
