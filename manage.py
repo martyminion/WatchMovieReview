@@ -27,3 +27,6 @@ def make_shell_context():
 
 if __name__ == '__main__':
   manager.run()
+
+
+  /app/.heroku/python/lib/python3.6/site-packages/flask_uploads.py
